@@ -19,3 +19,7 @@ hooks.useMount(...)
 # API
 
 {{>main}}
+
+# License
+
+[MIT](LICENSE) &copy; 2019 Jonas Gierer
