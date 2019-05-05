@@ -3,11 +3,14 @@ import { act } from "react-hooks-testing-library";
 
 import { usePersistentState } from "../use-persistent-state";
 
+let consoleSpy;
+
 beforeEach(() => {
-  console.error = jest.fn();
+  consoleSpy = jest.spyOn(console, `error`).mockImplementation(() => {});
 });
 
 afterEach(() => {
+  consoleSpy.mockRestore();
   window.localStorage.clear();
 });
 
