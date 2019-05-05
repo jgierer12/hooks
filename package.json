@@ -7,7 +7,7 @@
   "author": "Jonas Gierer <jonas@gierer.xyz>",
   "license": "MIT",
   "scripts": {
-    "publish": "np --contents=pkg",
+    "release": "np --contents=pkg",
     "build": "run-p build:*",
     "build:pkg": "pack build",
     "build:docs": "jsdoc2md --template README.hbs.md --files \"src/**/*.js\" | prettier --parser=markdown > README.md",
