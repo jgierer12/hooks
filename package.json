@@ -1,0 +1,66 @@
+{
+  "name": "@jgierer12/hooks",
+  "version": "0.0.0",
+  "description": "jgierer12's personal library of reusable React hooks",
+  "main": "index.js",
+  "repository": "https://github.com/jgierer12/hooks",
+  "author": "Jonas Gierer <jonas@gierer.xyz>",
+  "license": "MIT",
+  "scripts": {
+    "publish": "np --contents=pkg",
+    "build": "run-p build:*",
+    "build:pkg": "pack build",
+    "build:docs": "jsdoc2md --template README.hbs.md --files \"src/**/*.js\" | prettier --parser=markdown > README.md",
+    "develop": "run-s \"test:unit -- --watch\"",
+    "test": "run-s lint test:unit",
+    "test:unit": "jest",
+    "format": "run-p --print-label format:*",
+    "format:js": "run-s \"_eslint -- --fix\"",
+    "format:other": "run-s \"_prettier -- --write\"",
+    "lint": "run-p --print-label --continue-on-error lint:*",
+    "lint:js": "run-s _eslint",
+    "lint:other": "run-s _prettier",
+    "_eslint": "eslint --color --ignore-path .gitignore \"**/*.js\"",
+    "_prettier": "prettier --check --ignore-path .gitignore \"**/*.{json,md,mdx,yml,graphql}\""
+  },
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-standard-pkg",
+        {
+          "exclude": [
+            "__tests__/**/*"
+          ]
+        }
+      ],
+      [
+        "@pika/plugin-build-node"
+      ],
+      [
+        "@pika/plugin-build-web"
+      ]
+    ]
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-react": "^7.0.0",
+    "@jgierer12/js-configs": "^0.1.1",
+    "@pika/pack": "^0.3.7",
+    "@pika/plugin-build-node": "^0.3.16",
+    "@pika/plugin-build-web": "^0.3.16",
+    "@pika/plugin-standard-pkg": "^0.3.16",
+    "eslint": "^5.16.0",
+    "jest": "^24.7.1",
+    "jsdoc-to-markdown": "^4.0.1",
+    "merge-deep": "^3.0.2",
+    "np": "^5.0.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.17.0",
+    "react": "^16.8.6",
+    "react-hooks-testing-library": "^0.5.0",
+    "react-test-renderer": "^16.8.6"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6"
+  }
+}
