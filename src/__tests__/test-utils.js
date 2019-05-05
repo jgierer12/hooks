@@ -5,3 +5,5 @@ export const doTimes = (times, callback) => {
     callback(i);
   }
 };
+
+export const convertState = ([value, setValue]) => ({ value, setValue });

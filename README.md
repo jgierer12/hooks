@@ -27,6 +27,11 @@ hooks.useMount(...)
 <dt><a href="#useMount">useMount</a></dt>
 <dd><p>Run a callback only on initial mount, but not on rerenders</p>
 </dd>
+<dt><a href="#useObjectState">useObjectState</a></dt>
+<dd><p>On <code>setState</code>, deep-merge old and new state objects.
+This resembles <code>React.Component</code>&#39;s <code>this.setState</code>, but with deep merging
+instead of shallow merging</p>
+</dd>
 <dt><a href="#usePersistentState">usePersistentState</a></dt>
 <dd><p><code>useState</code> while persisting the state to <code>localStorage</code> across sessions</p>
 </dd>
@@ -90,6 +95,50 @@ Run a callback only on initial mount, but not on rerenders
 useMount(() => {
   fetchExtraResources();
 });
+```
+
+<a name="useObjectState"></a>
+
+## useObjectState
+
+On `setState`, deep-merge old and new state objects. This resembles
+`React.Component`'s `this.setState`, but with deep merging instead of shallow
+merging
+
+**Kind**: global constant
+
+| Param        | Type                | Description   |
+| ------------ | ------------------- | ------------- |
+| initialState | <code>Object</code> | Initial state |
+
+**Example**
+
+```js
+const [state, setState] = useObjectState({
+  name: {
+    first: `Jonas`,
+    middle: `Ben`,
+    last: `Gierer`,
+  },
+  age: 4,
+});
+
+setState({
+  name: {
+    middle: ``,
+  },
+  age: 20,
+});
+
+console.log(state);
+// {
+//    name: {
+//      first: `Jonas`,
+//      middle: ``,
+//      last: `Gierer`,
+//    },
+//    age: 20,
+// }
 ```
 
 <a name="usePersistentState"></a>
