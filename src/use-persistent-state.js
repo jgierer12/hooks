@@ -17,7 +17,7 @@ const safeJSON = (action, ...args) => {
 };
 
 /**
- * `useStorage` while persisting the state to `localStorage` across sessions
+ * `useState` while persisting the state to `localStorage` across sessions
  * @param {String} key The key under which the value should be stored
  * @param {*} initialValue Fallback initial value. Will be overwritten by value from `localStorage` if available
  *
