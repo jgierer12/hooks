@@ -1,9 +1,7 @@
-import { renderHook } from "./test-utils";
+import { renderHook, convertState } from "./test-utils";
 import { act } from "react-hooks-testing-library";
 
 import { usePersistentState } from "../use-persistent-state";
-
-const convertState = ([value, setValue]) => ({ value, setValue });
 
 beforeEach(() => {
   console.error = jest.fn();
