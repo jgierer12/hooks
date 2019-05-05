@@ -13,9 +13,11 @@ import * as React from "react";
 export const useRerender = (effect, deps) => {
   const justMounted = React.useRef(true);
   React.useEffect(() => {
-    if (!justMounted.current) {
-      return effect();
+    if (justMounted.current) {
+      justMounted.current = false;
+      return;
     }
-    justMounted.current = false;
+
+    return effect();
   }, deps);
 };
