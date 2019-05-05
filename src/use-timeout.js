@@ -19,7 +19,7 @@ import * as React from "react";
  *
  * @example
  * useTimeout(() => {
- *   console.log(`0.5 seconds have passed since the myVar was last changed`);
+ *   console.log(`0.5 seconds have passed since myVar was last changed`);
  * }, 500, [myVar], useRerender);
  */
 export const useTimeout = (callback, ms, deps, useEffect = React.useEffect) => {
