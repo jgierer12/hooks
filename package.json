@@ -7,22 +7,18 @@
   "author": "Jonas Gierer <jonas@gierer.xyz>",
   "license": "MIT",
   "scripts": {
-    "release": "np --contents=pkg",
-    "version": "run-s build && git add README.md",
     "build": "run-p build:*",
     "build:pkg": "pack build",
-    "build:docs": "jsdoc2md --template README.hbs.md --files \"src/**/*.js\" | prettier --parser=markdown > README.md",
-    "develop": "run-s \"test:unit -- --watch\"",
-    "test": "run-s lint test:unit",
+    "build:docs": "jsdoc2md --template README.hbs.md --files 'src/**/*.js' | prettier --parser=markdown > README.md",
+    "develop": "run-s 'test:unit -- --watch'",
+    "test": "run-s test:static test:unit",
     "test:unit": "jest",
-    "format": "run-p --print-label format:*",
-    "format:js": "run-s \"_eslint -- --fix\"",
-    "format:other": "run-s \"_prettier -- --write\"",
+    "test:static": "run-s lint",
     "lint": "run-p --print-label --continue-on-error lint:*",
-    "lint:js": "run-s _eslint",
-    "lint:other": "run-s _prettier",
-    "_eslint": "eslint --color --ignore-path .gitignore \"**/*.js\"",
-    "_prettier": "prettier --check --ignore-path .gitignore \"**/*.{json,md,mdx,yml,graphql}\""
+    "lint:js": "eslint --color --ignore-path .gitignore '**/*.js'",
+    "lint:other": "prettier --check --ignore-path .gitignore '**/*.{json,md,mdx,yml,graphql}'",
+    "release": "np --contents=pkg",
+    "version": "run-s build && git add README.md"
   },
   "publishConfig": {
     "access": "public"
