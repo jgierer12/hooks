@@ -1,9 +1,9 @@
-import { useMount } from "./use-mount";
+import * as React from "react";
 
 /**
  * Listen for a specified event and run a callback when it occurs
  * @param {String} type Type of the event to listen for
- * @param {Function} listener Callback to run when the event occurs
+ * @param {Function} handler Callback to run when the event occurs
  * @param {EventTarget} target DOM element to attach the listener to
  *
  * @example
@@ -16,11 +16,19 @@ import { useMount } from "./use-mount";
  *   console.log(`Input was focused`);
  * }, myInput);
  */
-export const useEventListener = (type, listener, target = document) => {
-  useMount(() => {
+export const useEventListener = (type, handler, target = document) => {
+  const cachedHandler = React.useRef();
+
+  React.useEffect(() => {
+    cachedHandler.current = handler;
+  }, [handler]);
+
+  React.useEffect(() => {
     if (!target) return;
+
+    const listener = event => cachedHandler.current(event);
 
     target.addEventListener(type, listener);
     return () => target.removeEventListener(type, listener);
-  });
+  }, [type, target]);
 };
