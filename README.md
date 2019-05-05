@@ -31,7 +31,7 @@ hooks.useMount(...)
 <dd><p><code>useState</code> while persisting the state to <code>localStorage</code> across sessions</p>
 </dd>
 <dt><a href="#useRerender">useRerender</a></dt>
-<dd><p>Run a callback only on rerenders, but not on initial mount</p>
+<dd><p>Run a callback only on rerenders (if dependencies changed), but not on initial mount</p>
 </dd>
 <dt><a href="#useTimeout">useTimeout</a></dt>
 <dd><p>Run a callback function after waiting for a specified duration</p>
@@ -116,7 +116,8 @@ setName(`Jonas`); // `name` will be initialized to `Jonas` instead of `Mike` in 
 
 ## useRerender
 
-Run a callback only on rerenders, but not on initial mount
+Run a callback only on rerenders (if dependencies changed), but not on initial
+mount
 
 **Kind**: global constant
 

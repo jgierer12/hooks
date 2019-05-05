@@ -1,7 +1,7 @@
 import * as React from "react";
 
 /**
- * Run a callback only on rerenders, but not on initial mount
+ * Run a callback only on rerenders (if dependencies changed), but not on initial mount
  * @param {Function} effect Effect callback to run
  * @param {Array} deps Dependencies. Will be passed through to `useEffect`
  *
