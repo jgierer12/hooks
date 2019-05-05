@@ -27,6 +27,9 @@ hooks.useMount(...)
 <dt><a href="#useMount">useMount</a></dt>
 <dd><p>Run a callback only on initial mount, but not on rerenders</p>
 </dd>
+<dt><a href="#usePersistentState">usePersistentState</a></dt>
+<dd><p><code>useStorage</code> while persisting the state to <code>localStorage</code> across sessions</p>
+</dd>
 <dt><a href="#useRerender">useRerender</a></dt>
 <dd><p>Run a callback only on rerenders, but not on initial mount</p>
 </dd>
@@ -43,11 +46,11 @@ Listen for a specified event and run a callback when it occurs
 
 **Kind**: global constant
 
-| Param    | Type                     | Description                           |
-| -------- | ------------------------ | ------------------------------------- |
-| type     | <code>String</code>      | Type of the event to listen for       |
-| listener | <code>function</code>    | Callback to run when the event occurs |
-| target   | <code>EventTarget</code> | DOM element to attach the listener to |
+| Param   | Type                     | Description                           |
+| ------- | ------------------------ | ------------------------------------- |
+| type    | <code>String</code>      | Type of the event to listen for       |
+| handler | <code>function</code>    | Callback to run when the event occurs |
+| target  | <code>EventTarget</code> | DOM element to attach the listener to |
 
 **Example**
 
@@ -87,6 +90,26 @@ Run a callback only on initial mount, but not on rerenders
 useMount(() => {
   fetchExtraResources();
 });
+```
+
+<a name="usePersistentState"></a>
+
+## usePersistentState
+
+`useStorage` while persisting the state to `localStorage` across sessions
+
+**Kind**: global constant
+
+| Param        | Type                | Description                                                                           |
+| ------------ | ------------------- | ------------------------------------------------------------------------------------- |
+| key          | <code>String</code> | The key under which the value should be stored                                        |
+| initialValue | <code>\*</code>     | Fallback initial value. Will be overwritten by value from `localStorage` if available |
+
+**Example**
+
+```js
+const [name, setName] = usePersistentState(`name`, `Mike`);
+setName(`Jonas`); // `name` will be initialized to `Jonas` instead of `Mike` in all future sessions
 ```
 
 <a name="useRerender"></a>
