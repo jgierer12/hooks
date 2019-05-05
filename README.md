@@ -28,7 +28,7 @@ hooks.useMount(...)
 <dd><p>Run a callback only on initial mount, but not on rerenders</p>
 </dd>
 <dt><a href="#usePersistentState">usePersistentState</a></dt>
-<dd><p><code>useStorage</code> while persisting the state to <code>localStorage</code> across sessions</p>
+<dd><p><code>useState</code> while persisting the state to <code>localStorage</code> across sessions</p>
 </dd>
 <dt><a href="#useRerender">useRerender</a></dt>
 <dd><p>Run a callback only on rerenders, but not on initial mount</p>
@@ -96,7 +96,7 @@ useMount(() => {
 
 ## usePersistentState
 
-`useStorage` while persisting the state to `localStorage` across sessions
+`useState` while persisting the state to `localStorage` across sessions
 
 **Kind**: global constant
 
