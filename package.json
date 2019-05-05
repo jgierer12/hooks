@@ -24,6 +24,9 @@
     "_eslint": "eslint --color --ignore-path .gitignore \"**/*.js\"",
     "_prettier": "prettier --check --ignore-path .gitignore \"**/*.{json,md,mdx,yml,graphql}\""
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "@pika/pack": {
     "pipeline": [
       [
