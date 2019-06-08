@@ -42,7 +42,7 @@
     ]
   },
   "dependencies": {
-    "merge-deep": "^3.0.2"
+    "@jgierer12/merge-deep": "^3.1.0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.4.4",
