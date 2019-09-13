@@ -21,7 +21,8 @@
     "version": "run-s build && git add README.md"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://npm.pkg.github.com/jgierer12"
   },
   "@pika/pack": {
     "pipeline": [
