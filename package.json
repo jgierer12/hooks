@@ -18,7 +18,8 @@
     "lint:js": "eslint --color --ignore-path .gitignore '**/*.js'",
     "lint:other": "prettier --check --ignore-path .gitignore '**/*.{json,md,mdx,yml,graphql}'",
     "release": "np --contents=pkg",
-    "version": "run-s build && git add README.md"
+    "version": "run-s build && git add README.md",
+    "postpublish": "npm publish pkg --ignore-scripts --@jgierer12:registry='https://registry.npmjs.org'"
   },
   "publishConfig": {
     "access": "public"
@@ -47,13 +48,13 @@
   "devDependencies": {
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
-    "@jgierer12/js-configs": "^0.1.1",
+    "@jgierer12/js-configs": "^1.0.2",
     "@pika/pack": "^0.3.7",
     "@pika/plugin-build-node": "^0.3.16",
     "@pika/plugin-build-web": "^0.3.16",
     "@pika/plugin-standard-pkg": "^0.3.16",
     "@types/jest": "^24.0.12",
-    "eslint": "^5.16.0",
+    "eslint": "^6.3.0",
     "jest": "^24.7.1",
     "jsdoc-to-markdown": "^4.0.1",
     "np": "^5.0.1",

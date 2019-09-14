@@ -3,3 +3,5 @@ language: node_js
 node_js:
   - "node"
   - "lts/*"
+before_install:
+  - echo "//npm.pkg.github.com/:_authToken=\${NPM_TOKEN}" > .npmrc
