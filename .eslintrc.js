@@ -1,4 +1,3 @@
-module.exports = require(`@jgierer12/merge-deep`)(
-  require(`@jgierer12/js-configs/eslint`),
-  require(`@jgierer12/js-configs/eslint/react`)
-);
+module.exports = {
+  extends: `./node_modules/@jgierer12/js-configs/eslint/react`,
+};
