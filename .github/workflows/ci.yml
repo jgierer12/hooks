@@ -3,7 +3,7 @@ name: CI
 on: [push]
 
 jobs:
-  test-static:
+  static:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,7 +17,7 @@ jobs:
       - run: npm install
       - run: npm run test:static
 
-  test-unit:
+  unit:
     runs-on: ubuntu-latest
 
     strategy:
