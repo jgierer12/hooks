@@ -1,6 +1,6 @@
 {
   "name": "@jgierer12/hooks",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "jgierer12's personal library of reusable React hooks",
   "main": "index.js",
   "repository": "https://github.com/jgierer12/hooks",
