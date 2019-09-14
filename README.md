@@ -2,8 +2,23 @@
 
 # Installation
 
+<details>
+
+<summary>GitHub Package Registry</summary>
+
+This package is published on both the
+[GitHub Package Registry](https://github.com/features/package-registry) and the
+npm registry. To use the GPR, change the registry for the `@jgierer12` scope
+before installing:
+
 ```sh
-yarn add @jgierer12/hooks
+echo "@jgierer12:registry=https://npm.pkg.github.com" >> .npmrc
+```
+
+</details>
+
+```sh
+npm install @jgierer12/hooks
 ```
 
 ```js
