@@ -18,7 +18,8 @@
     "lint:js": "eslint --color --ignore-path .gitignore '**/*.js'",
     "lint:other": "prettier --check --ignore-path .gitignore '**/*.{json,md,mdx,yml,graphql}'",
     "release": "np --contents=pkg",
-    "version": "run-s build && git add README.md"
+    "version": "run-s build && git add README.md",
+    "postpublish": "npm publish pkg --ignore-scripts --@jgierer12:registry='https://registry.npmjs.org'"
   },
   "publishConfig": {
     "access": "public",
