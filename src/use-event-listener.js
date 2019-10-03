@@ -16,7 +16,11 @@ import * as React from "react";
  *   console.log(`Input was focused`);
  * }, myInput);
  */
-export const useEventListener = (type, handler, target = document) => {
+export const useEventListener = (
+  type,
+  handler,
+  target = typeof window === `undefined` ? null : window.document
+) => {
   const cachedHandler = React.useRef();
 
   React.useEffect(() => {
